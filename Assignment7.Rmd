@@ -36,7 +36,7 @@ m16 <- lm(LMOVE6 ~ LPRICE1 + LPRICE2 + LPRICE3 + LPRICE4 + LPRICE5 + LPRICE6 + L
 m17 <- lm(LMOVE7 ~ LPRICE1 + LPRICE2 + LPRICE3 + LPRICE4 + LPRICE5 + LPRICE6 + LPRICE7, data = tuna)
 
 # Create df of all alphas
-elasticity <- rbind(
+sales_elasticity <- rbind(
   m11$coefficients[2:8], 
   m12$coefficients[2:8], 
   m13$coefficients[2:8], 
