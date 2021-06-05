@@ -55,13 +55,17 @@ sales_elasticity
 ```{r Competitive Mapping Using Sales}
 library("psych")
 
-pc.cr <- princomp(sales_elasticity, cor=TRUE)
-biplot(pc.cr)
+pc.cr1 <- princomp(sales_elasticity, cor=TRUE)
+
+devtools::install_github("vqv/ggbiplot")
+library(ggbiplot)
+library(plotly)
+
+p <- ggbiplot(pcobj = pc.cr1, labels=row.names(sales_elasticity))
+ggplotly(p)
 ```
 
 ```{r Market Share Models}
-library(mlogit)
-
 # Get Market Shares for each Brand
 
 # Compute Geometric mean of sales for all brands
@@ -192,6 +196,7 @@ share_elasticity
 
 ```{r Competitive Mapping Using Share}
 
-pc.cr <- princomp(share_elasticity, cor=TRUE)
-biplot(pc.cr)
+pc.cr2 <- princomp(share_elasticity, cor=TRUE)
+p <- ggbiplot(pcobj = pc.cr2, labels=row.names(share_elasticity))
+ggplotly(p)
 ```
